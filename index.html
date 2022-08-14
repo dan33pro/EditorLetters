@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/style/style.css">
+    <title id="global-page-title">Letters</title>
+</head>
+<body>
+    <nav class="pincipal-nav">
+        <div class="left-nav">
+            <ul>
+                <li class="btn-blue">
+                    <img src="./src/pictures/home-menu.png" alt="home-icon" class="home-icon">
+                </li>
+                <li>
+                    <h2>Letters</h2>
+                </li>
+                <li class="name-document-container btn-blue">
+                    <span id="name-document"></span>
+                    <img src="./src/pictures/arrow.png" alt="arrow">
+                </li>
+            </ul>
+            <div class="rename-document-options">
+                <form action="" class="name-doc-form" id="name-doc-form">
+                    <label for="name-doc">Nombre del archivo</label>
+                    <input autocomplete="nope" type="text" name="name-doc" id="name-doc" placeholder="">
+                    <div class="btn-rename-doc-container">
+                        <button class="btn-rename-doc" type="button" value="cancel">Cancelar</button>
+                        <button class="btn-rename-doc" type="button" value="change">Cambiar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="center-nav">
+            <div class="bar-search">
+                <div class="lupa-container">
+                    <img src="./src/pictures/lupa.png" alt="icon-lupa">
+                </div>
+                <input id="nav-input-search" type="text" placeholder="¿Está buscando algo? Busque aquí"></input>
+            </div>
+        </div>
+        <div class="right-nav">
+            <ul>
+                <li class="btn-right-nav" value="setings">
+                    <img src="./src/pictures/setings.png" alt="configuraciones">
+                </li>
+                <li class="btn-right-nav" value="profile">
+                    <img src="./src/pictures/user.png" alt="foto de perfil">
+                </li>
+            </ul>
+            <aside class="aside-config-nav">
+                <div class="aside-config-top">
+                    <h2>Configuración</h2>
+                    <img src="./src/pictures/cancel.png" alt="close-icon">
+                </div>
+                <div class="info-aside">
+                    <h4>Accesibilidad</h4>
+                    <div class="info-aside-text">
+                        <h5>Tema</h5>
+                        <div class="theme-container">
+                            <button class="theme" value="white" type="button"></button>
+                            <button class="theme" value="dark" type="button"></button>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </nav>
+    <header class="principal-header">
+        <div class="top-header">
+            <div class="left-options-header">
+                <ul class="options-header">
+                    <li class="option-item-container">
+                        <span class="btn-option-top-header">
+                            Archivo
+                        </span>
+                    </li>
+                    <li class="option-item-container">
+                        <span class="btn-option-top-header active-btn-header">
+                            Inicio
+                        </span>
+                    </li>
+                    <li class="option-item-container">
+                        <span class="btn-option-top-header">
+                            Insertar
+                        </span>
+                    </li>
+                    <li class="option-item-container">
+                        <span class="btn-option-top-header">
+                            Presentación
+                        </span>
+                    </li>
+                    <li class="option-item-container">
+                        <span class="btn-option-top-header">
+                            Referencias
+                        </span>
+                    </li>
+                    <li class="option-item-container">
+                        <span class="btn-option-top-header">
+                            Revisar
+                        </span>
+                    </li>
+                    <li class="option-item-container">
+                        <span class="btn-option-top-header">
+                            Vista
+                        </span>
+                    </li>
+                    <li class="option-item-container">
+                        <span class="btn-option-top-header">
+                            Ayuda
+                        </span>
+                    </li>
+                </ul>
+                <button class="btn" type="button">
+                    <img src="./src/pictures/pencil.png" alt="icon-pencil">
+                    <span>Edición</span>
+                    <img src="./src/pictures/arrow.png" alt="flecha">
+                </button>
+            </div>
+            <div class="right-options-header">
+                <button class="btn" type="button">
+                    <img src="./src/pictures/share.png" alt="compartir-icon">
+                    <span>Compartir</span>
+                    <img src="./src/pictures/arrow.png" alt="flecha">
+                </button>
+                <button class="btn" type="button">
+                    <img src="./src/pictures/coment.png" alt="compartir-icon">
+                    <span>Comentarios</span>
+                </button>
+            </div>
+        </div>
+        <div class="bottom-header">
+
+        </div>
+    </header>
+    <script src="./src/JS/main.js"></script>
+</body>
+</html>
