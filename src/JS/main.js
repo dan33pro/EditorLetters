@@ -70,7 +70,29 @@ function changeColors(palet) {
 }
 
 //      Close all panels with one exepction
-const myPanels = [];
+//  Calse lista de panels
+class listPanels {
+    constructor() {
+        this.myPanels = [];
+    }
+
+    addPanel(panel) {
+        if (panel instanceof Panel) {
+            this.myPanels.push(panel);
+        }
+    }
+
+    closeAllPanesOneE(namePanel) {
+        this.myPanels.forEach(panel => {
+            if (panel.name != namePanel) {
+                panel.closePanel();
+            }
+        })
+    }
+}
+const myPanels = new listPanels();
+
+// Clase panel
 class Panel {
     constructor({
         name,
@@ -78,7 +100,7 @@ class Panel {
         toggleClass,
     }) {
         const nameValid = typeof name == 'string';
-        const toggleClassValid = typeof name == 'string';
+        const toggleClassValid = typeof toggleClass == 'string';
         const domPanelValid = domPanel instanceof HTMLElement;
 
         if (nameValid && toggleClassValid && domPanelValid) {
@@ -97,8 +119,44 @@ class Panel {
     }
 }
 
-//  Create panel rename doc
+// Función watch X panel
+function watchPanel(panel) {
+    if (panel instanceof Panel) {
+        let classAnimate = panel.toggleClass;
+        if (panel.domPanel.classList.contains(classAnimate)) {
+            panel.closePanel();
+        } else {
+            myPanels.closeAllPanesOneE(panel.name);
+            panel.openPanel();
+        }
+    }
+}
 
+//  Create panel rename doc
+const nameOptionsDocRename = 'docRename';
+const optionsDocRename = document.querySelector('.rename-document-options');
+const toggleClassOptionsDocRename = 'doc-name-transition';
+
+// panel doc rename
+const panelDocRename = new Panel({
+    name: nameOptionsDocRename,
+    domPanel: optionsDocRename,
+    toggleClass: toggleClassOptionsDocRename,
+});
+myPanels.addPanel(panelDocRename);
+
+// Create panel setings aside
+const nameAsideSetings = 'asideSetings';
+const asideSetings = document.querySelector('.aside-config-nav');
+const toggleClassAsideSetings = 'aside-config-nav-animation';
+
+// panel aside setings
+const panelAsideSetings = new Panel({
+    name: nameAsideSetings,
+    domPanel: asideSetings,
+    toggleClass: toggleClassAsideSetings,
+});
+myPanels.addPanel(panelAsideSetings);
 
 //                  NAV
 let nameDocument = 'Documento 1';
@@ -117,12 +175,12 @@ iniciar();
 
 // Cambiar name-document Panel
 const btnNameDocument = document.querySelector('.name-document-container');
-const optionsDocRename = document.querySelector('.rename-document-options');
 const actualNameDoc = document.querySelector('#name-doc');
 const btnsRenameDocName = document.querySelectorAll('.btn-rename-doc');
 btnsRenameDocName.forEach(btn => btn.addEventListener('click', btnsOptionRenameDoc))
 btnNameDocument.addEventListener('click', watchOptionRenameDocument);
 
+// Al hacer enter form guardar name doc
 document.addEventListener('DOMContentLoaded', () => {
     actualNameDoc.addEventListener('keypress', e => {
         if (e.keyCode == 13) {
@@ -132,11 +190,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
+// Botones cancelar rename doc o cambiar
 function btnsOptionRenameDoc(e) {
     const myBtn = e.currentTarget;
     const val = myBtn.getAttribute('value');
     if (val == 'cancel') {
+        iniciarRenameDocOptions();
         watchOptionRenameDocument();
     } else {
         if (actualNameDoc.value != '') {
@@ -148,10 +207,12 @@ function btnsOptionRenameDoc(e) {
     }
 }
 
+// Abrir o cerrar panel doc rename
 function watchOptionRenameDocument() {
-    optionsDocRename.classList.toggle('doc-name-transition');
+    watchPanel(panelDocRename);
 }
 
+// Valores para los elementos del panel doc rename
 function iniciarRenameDocOptions() {
     actualNameDoc.value = '';
     actualNameDoc.setAttribute('placeholder', nameDocument);
@@ -159,18 +220,29 @@ function iniciarRenameDocOptions() {
 
 iniciarRenameDocOptions();
 
-// right part NAV
+//      Right part NAV
+// Aside Setings Config
 const btnsNavRight = document.querySelectorAll('.btn-right-nav');
+const btnCloseAsideSettings = document.querySelector('.btn-close-aside-setings');
 btnsNavRight.forEach(btn => btn.addEventListener('click', toggleWatchPanel));
+btnCloseAsideSettings.addEventListener('click', closeAsideSettingsWithBtn);
 
+// Abrir o cerrar panel de Profile o Setings
 function toggleWatchPanel(e) {
-    const btn = e.currentTarget;
-    if (btn.value == 'setings') {
-
-    } else if (btn.value == 'profile') {
+    const li = e.currentTarget;
+    const myValue = li.getAttribute('value');
+    if (myValue == 'setings') {
+        watchPanel(panelAsideSetings);
+    } else if (myValue == 'profile') {
 
     }
 }
+
+// Cerrar Aside settings con btn de cerrar
+function closeAsideSettingsWithBtn() {
+    watchPanel(panelAsideSetings);
+}
+
 
 // Header top
 const btnsHeaderOptions = document.querySelectorAll('.btn-option-top-header');

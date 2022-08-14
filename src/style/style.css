@@ -38,6 +38,7 @@ html {
 body {
     width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
 }
 
 .pincipal-nav {
@@ -254,12 +255,18 @@ body {
 .aside-config-nav {
     position: absolute;
     top: 50px;
-    right: 0;
+    right: -300px;
     width: 300px;
     height: calc( 100vh - 50px );
     padding: 20px;
     background: var(--secundary-color);
     box-shadow: -4px 0 8px var(--shadow-dark);
+    will-change: transform;
+    transition: transform 500ms;
+}
+
+.aside-config-nav-animation {
+    transform: translateX(-300px);
 }
 
 .aside-config-top {
@@ -271,6 +278,10 @@ body {
 
 .aside-config-top h2 {
     font-size: var(--full-big-font-size);
+}
+
+.btn-close-aside-setings {
+    cursor: pointer;
 }
 
 .info-aside h4  {
