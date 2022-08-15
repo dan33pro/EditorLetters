@@ -38,16 +38,18 @@ html {
 body {
     width: 100vw;
     height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden;
+    background: var(--secundary-color);
 }
 
 .pincipal-nav {
-    position: relative;
+    position: fixed;
     width: 100vw;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     height: 50px;
     background: var(--principal-color);
+    z-index: 3;
 }
 
 .left-nav {
@@ -120,7 +122,7 @@ body {
 }
 
 .doc-name-transition {
-    box-shadow: 0 4px 8px var(--shadow-dark);
+    box-shadow: 4px 4px 8px var(--shadow-dark);
     transform: translateY(190px);
 }
 
@@ -255,18 +257,18 @@ body {
 .aside-config-nav {
     position: absolute;
     top: 50px;
-    right: -300px;
+    right: -310px;
     width: 300px;
     height: calc( 100vh - 50px );
     padding: 20px;
     background: var(--secundary-color);
-    box-shadow: -4px 0 8px var(--shadow-dark);
+    box-shadow: -4px 4px 8px var(--shadow-dark);
     will-change: transform;
     transition: transform 500ms;
 }
 
 .aside-config-nav-animation {
-    transform: translateX(-300px);
+    transform: translateX(-310px);
 }
 
 .aside-config-top {
@@ -311,11 +313,15 @@ body {
 /* Header Principal Options */
 
 .principal-header {
+    position: fixed;
+    top: 50px;
+    margin-bottom: 10px;
     width: 100vw;
     display: grid;
     grid-template-rows: 1fr 1fr;
     background: var(--secundary-color);
     box-shadow: 0 4px 8px var(--shadow-dark);
+    z-index: 2;
 }
 
 .top-header {
@@ -400,4 +406,141 @@ body {
 .right-options-header .btn:last-child {
     background: var(--page-color);
     color: var(--principal-color);
+}
+
+/* Main Paper */
+.main-paper {
+    position: fixed;
+    top: 150px;
+    padding: 20px 0;
+    width: 100vw;
+    height: calc( 100vh - 175px);
+    background: var(--secundary-color);
+    overflow: auto;
+    z-index: 1;
+}
+
+/* Estilos scroll bar none */
+.main-paper::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+/* Estilos barra scroll vertical y horizontal*/
+.main-paper::-webkit-scrollbar:vertical {
+    width: 10px;
+}
+
+.main-paper::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+/* Botones y carril */
+.main-paper::-webkit-scrollbar-button:increment,
+.main-paper::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* Almohadilla de la barra de scroll*/
+.main-paper::-webkit-scrollbar-thumb {
+    background: var(--principal-color);
+    border: 2px solid var(--secundary-color);
+    border-radius: 20px;
+}
+
+.main-paper::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+.sheet {
+    margin: 0 auto;
+    width: 80vw;
+    height: 2000px;
+    background: var(--page-color);
+    border: 1px solid var(--shadow-dark);
+}
+
+/* bar footer */
+.bar-footer {
+    bottom: 0;
+    position: fixed;
+    width: 100vw;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--secundary-color);
+    border-top: 1px solid var(--shadow-dark);
+    z-index: 2;
+}
+
+.bar-footer .estatus-doc {
+    width: 200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    list-style: none;
+}
+
+.estatus-doc li span {
+    font-size: var(--small-font-size);
+} 
+
+/* Zoom options bar */
+.zoom-options {
+    padding-right: 10px;
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    gap: 10px;
+    place-items: center;
+    list-style: none;
+}
+
+.bar-zoom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--medium-font-size);
+}
+
+.zoom-options li {
+    font-size: var(--small-font-size);
+}
+
+.btn-zoom {
+    margin: 0 10px;
+    width: 25px;
+    cursor: pointer;
+    border: 1px solid var(--principal-color-dark);
+    border-radius: 2px;
+    background: var(--secundary-color);
+}
+
+.bar-zoom-scroll {
+    position: relative;
+    width: 100px;
+    height: 1px;
+    border: 1px solid var(--principal-color-dark);
+}
+
+.btn-bar-zoom {
+    position: absolute;
+    top: calc( 50% - 7.5px );
+    left: calc( 50% - 3.5px);
+    width: 7px;
+    height: 15px;
+    background: var(--principal-color-dark);
+}
+
+.ajustar-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ajustar-page img {
+    width: var(--large-font-size);
+}
+
+.ajustar-page span {
+    margin: 0 10px;
 }
