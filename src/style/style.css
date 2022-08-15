@@ -425,7 +425,7 @@ body {
     top: 140px;
     padding: 20px 0;
     width: 100vw;
-    height: calc( 100vh - 175px);
+    height: calc( 100vh - 160px);
     background: var(--secundary-color);
     overflow: auto;
     z-index: 1;
