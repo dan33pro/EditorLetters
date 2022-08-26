@@ -158,6 +158,19 @@ const panelAsideSetings = new Panel({
 });
 myPanels.addPanel(panelAsideSetings);
 
+// Create panel aside File
+const nameAsideFile = 'asideFile';
+const asideFile = document.querySelector('.leftAsideFile');
+const toggleClassAsideFile = 'aside-file-left-animation';
+
+// panel aside file
+const panelAsideFile = new Panel({
+    name: nameAsideFile,
+    domPanel: asideFile,
+    toggleClass: toggleClassAsideFile,
+});
+myPanels.addPanel(panelAsideFile);
+
 //                  NAV
 let nameDocument = 'Documento 1';
 const nameDocumentElement = document.querySelector('#name-document');
@@ -262,6 +275,52 @@ function activeBtnHeader(e) {
     activeBtn.classList.remove('active-btn-header');
 
     btn.classList.add('active-btn-header');
+    construirBottomHeader(btn.getAttribute("value"));
+}
+
+//  Header bottom
+
+// Construir el header inferior
+function construirBottomHeader(value) {
+    switch(value) {
+        case "archivo":
+            showPanelArchivo();
+            break;
+        case "inicio":
+            makePanelInicio();
+            break;
+        case "insertar":
+            makePanelInsertar();
+            break;
+        case "presentacion":
+            makePanelPresentacion();
+            break;
+        case "referencias":
+            makePanelReferencia();
+            break;
+        case "leer":
+            makePanelLeer();
+            break;
+        case "revisar":
+            makePanelRevisar();
+            break;
+        case "ayuda":
+            makePanelAyuda();
+            break;
+    }
+}
+
+// Construir el panel especifico para el header inferior
+function showPanelArchivo() {
+    watchPanel(panelAsideFile);
+}
+
+// Configuración para cerrar el aside file
+const btnsCloseAsideFile = document.querySelectorAll('.closePanelFileBtn');
+btnsCloseAsideFile.forEach( btn => btn.addEventListener('click', closeAsideFile));
+
+function closeAsideFile() {
+    panelAsideFile.closePanel();
 }
 
 function hoverActiveBtnStyle(e) {

@@ -259,6 +259,117 @@ body {
     width: 20px;
 }
 
+/* left header panels */
+.leftAsideFile {
+    position: absolute;
+    left: -61vw;
+    width: 60vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    box-shadow: 2px 0 8px var(--shadow-dark);
+    background: var(--secundary-color);
+    z-index: 3;
+    will-change: transform;
+    transition: transform 500ms;
+}
+
+.aside-file-left-animation {
+    transform: translateX(61vw);
+}
+
+.leftAsideFile .leftPartAside {
+    width: 200px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--principal-color);
+}
+
+.leftPartAside .closeOptionsPanelFile {
+    margin: 0 auto;
+    width: 90%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.closeOptionsPanelFile span {
+    padding: 4px 8px;
+    color: var(--theme-one-s-c);
+    border-radius: 4px;
+    font-size: var(--medium-font-size);
+    cursor: pointer;
+}
+
+.closeOptionsPanelFile picture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: var(--medium-font-size);
+    cursor: pointer;
+}
+
+.closeOptionsPanelFile picture:hover {
+    background: var(--principal-color-dark);
+}
+
+.closeOptionsPanelFile span:hover {
+    background: var(--principal-color-dark);
+}
+
+.leftPartAside .pricipalOptionsPanleFile {
+    padding: 10px 0;
+    margin: 0 auto;
+    width: 90%;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    border-bottom: 2px solid var(--theme-one-s-c);
+}
+
+.pricipalOptionsPanleFile .itemPrincipalOptionPanelFile {
+    padding: 5px 18px;
+    display: flex;
+    align-items: center;
+}
+
+.pricipalOptionsPanleFile .itemPrincipalOptionPanelFile:hover {
+    background: var(--principal-color-dark);
+}
+
+.pricipalOptionsPanleFile .active-item-panel-file {
+    border-left: 2px solid var(--theme-one-s-c);
+}
+
+.itemPrincipalOptionPanelFile span {
+    font-size: var(--medium-font-size);
+    color: var(--theme-one-s-c);
+    margin-left: 20px;
+}
+
+.otherOptionsPanelFile {
+    margin: 0 auto;
+    padding: 10px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.otherOptionsPanelFile li {
+    padding: 10px 20px;
+    font-size: var(--medium-font-size);
+    color: var(--theme-one-s-c);
+    cursor: pointer;
+}
+
+.otherOptionsPanelFile li:hover {
+    background: var(--principal-color-dark);
+}
+
 /* right nav panels */
 .aside-config-nav {
     position: absolute;
